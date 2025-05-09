@@ -1,17 +1,17 @@
 @charset "utf-8";
 
-body{
+body {
   display: flex;
   font-family: sans-serif;
   justify-content: center;
-  margin:0px;
+  margin:0;
   background-color: #ffffff;
   align-items: center;
   min-height: 100vh;    /* ←画面の高さいっぱいに中央寄せ */
   
 
 }
-.card{
+.card {
   display: flex;
   gap:32px;
   background-color: #f0f8ff;
@@ -19,10 +19,10 @@ body{
   border-radius: 12px;
   padding: 24px;
   margin:40px;
-  background-image: url("background.jpg")
+  background-image: url("background.jpg");
 }
 
-.right{
+.right {
   margin-top: 80px;
 }
 
@@ -41,24 +41,24 @@ body{
 ul {
   list-style-type: square; /* ■ 四角のマーカーに */
 }
-.myname{
+.my-name {
   background-color: rgba(255, 255, 255, 0.6);
 }
-h1 {
+.jp-name {
   font-size: 32px;
   color: #111;
   
   letter-spacing: 0.05em;
   font-weight: bold;
 }
-h2 {
+.en-name {
   font-size: 20px;
   color: #007acc;
   margin-bottom: 1em;
   font-weight: normal;
   font-style: italic;
 }
-.card-box{
+.card-box {
   border: 2px solid #ccc;
   border-radius: 8px;
   padding: 16px;
