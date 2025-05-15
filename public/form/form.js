@@ -2,10 +2,26 @@ const form = document.getElementById("survey");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	const name = document.getElementById("name");
-	const age = document.getElementById("age");
-	const job = document.getElementById("job");
-	const intro = document.getElementById("intro");
+	let name;
+	let age;
+	let job;
+	let intro;
+
+	try {
+		name = document.getElementById("name");
+		age = document.getElementById("age");
+		job = document.getElementById("job");
+		intro = document.getElementById("intro");
+
+		if (!name || !age || !job || !intro) {
+			throw new Error();
+		}
+	} catch (err) {
+		alert("エラーが発生しました");
+		console.error(err);
+		return;
+	}
+
 	let hasError = false;
 	// 名前の必須チェック
 	if (name.value === "") {
