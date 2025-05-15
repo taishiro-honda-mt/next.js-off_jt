@@ -33,7 +33,9 @@ root/
 ### 環境構築
 
 1. それぞれforkした本プロジェクトをローカルにcloneする
-2. dockerに本プロジェクトをbuildする(`make dev-up`)
+2. dockerに本プロジェクトをbuildする
+   windows: `cd docker && docker compose -f docker-compose.yml up --build`
+   mac: `make dev-up`
 
 ### devContainer での開発方法
 
@@ -48,17 +50,22 @@ root/
 
 ```bash
 # 開発サーバーの起動
-make dev
+windows: pnpm run dev
+mac: make dev-up
 
 # リントの調整
-make lint
+windows: pnpm lint && pnpm format
+mac: make lint
 
 # テストの実行
-make test
+windows: pnpm run test
+mac: make test
 
 # カバレッジの確認
-make test-coverage
+windows: pnpm test:coverage
+mac: make test-coverage
 ```
+
 ---
 
 ## 💡 開発のポイント
