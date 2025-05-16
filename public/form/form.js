@@ -2,57 +2,46 @@ const form = document.getElementById("survey");
 form.addEventListener("submit", (e) => {
 	e.preventDefault();
 
-	let name;
-	let age;
-	let job;
-	let intro;
-
 	try {
-		name = document.getElementById("name");
-		age = document.getElementById("age");
-		job = document.getElementById("job");
-		intro = document.getElementById("intro");
+		const name = document.getElementById("name");
+		const age = document.getElementById("age");
+		const job = document.getElementById("job");
+		const intro = document.getElementById("intro");
 
-		if (!name || !age || !job || !intro) {
-			throw new Error();
+		// 名前の必須チェック
+		if (name.value !== "") {
+			document.getElementById("nameError").style.display = "none";
+		} else {
+			document.getElementById("nameError").style.display = "block";
+			throw new Error("名前を入力してください");
 		}
-	} catch (err) {
-		alert("エラーが発生しました");
-		console.error(err);
-		return;
-	}
-
-	let hasError = false;
-	// 名前の必須チェック
-	if (name.value === "") {
-		hasError = true;
-		document.getElementById("nameError").style.display = "block";
-	} else {
-		document.getElementById("nameError").style.display = "none";
-	}
-	// 年齢必須チェック
-	if (age.value === "") {
-		hasError = true;
-		document.getElementById("ageRequiredError").style.display = "block";
-		document.getElementById("ageError").style.display = "none";
-	} else {
-		document.getElementById("ageRequiredError").style.display = "none";
-
-		// 年齢18歳以上チェック
-		if (age.value < 18) {
-			hasError = true;
+		// 年齢必須チェック
+		if (age.value !== "") {
+			document.getElementById("ageRequiredError").style.display = "none";
 			document.getElementById("ageError").style.display = "block";
 		} else {
-			document.getElementById("ageError").style.display = "none";
+			document.getElementById("ageRequiredError").style.display = "block";
+			throw new Error("年齢を入力してください");
 		}
-	}
-	if (hasError) return;
 
-	const data = {
-		name: name.value.trim(),
-		age: age.value,
-		job: job.value,
-		intro: intro.value.trim(),
-	};
-	console.log("送信データ:", JSON.stringify(data, null, 2));
+		// 年齢18歳以上チェック
+		if (age.value > 18) {
+			document.getElementById("ageError").style.display = "none";
+		} else {
+			document.getElementById("ageError").style.display = "block";
+			throw new Error("年齢は18歳以上で入力してください");
+		}
+
+		const data = {
+			name: name.value.trim(),
+			age: age.value,
+			job: job.value,
+			intro: intro.value.trim(),
+		};
+
+		console.log("送信データ:", JSON.stringify(data, null, 2));
+	} catch (err) {
+		console.error("エラー：", err.message);
+		return;
+	}
 });
