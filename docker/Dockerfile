@@ -15,4 +15,4 @@ COPY . ./
 
 RUN npm install -g pnpm
 
-RUN pnpm install
+RUN rm -rf node_modules && pnpm install --no-optional --reporter=append-only
