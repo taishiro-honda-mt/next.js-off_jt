@@ -16,7 +16,7 @@ const memos: Memo[] = [
 
 export default function memoPage() {
 	return (
-		<main>
+		<main className="min-h-screen flex flex-col items-center">
 			<h1>メモ一覧ページです</h1>
 
 			<ul>
