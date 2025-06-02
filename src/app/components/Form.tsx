@@ -39,7 +39,6 @@ export default function Form() {
       <input
         {...register("email", {
           required: "メールアドレスは必須です",
-
           pattern: {
             value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/,
             message: "メールアドレスの形式が正しくありません",
@@ -53,17 +52,14 @@ export default function Form() {
       <input
         {...register("age", {
           required: "年齢は必須です",
-
           pattern: {
             value: /^[0-9]+$/,
             message: "年齢は数値で入力してください",
           },
-
           min: {
             value: 18,
             message: "18歳以上で入力してください",
           },
-
           max: {
             value: 100,
             message: "100歳以下で入力してください",
