@@ -16,6 +16,7 @@ export default function Home() {
       <LikeButton initialCount={99} />
       <Link href="/memos">メモ一覧ページへ</Link>
       <Link href="/Form">Formへ</Link>
+      <Link href="/memos/new">NewFormへ</Link>
     </main>
   );
 }
