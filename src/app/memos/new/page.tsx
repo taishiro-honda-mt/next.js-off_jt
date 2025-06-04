@@ -5,7 +5,7 @@ export const metadata = {
   title: "NewForm",
 };
 
-export default function New() {
+export default function NewMemoPage() {
   return (
     <main>
       <h1>NewForm</h1>
