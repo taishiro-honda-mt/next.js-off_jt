@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ClockApp } from "./components/Clock";
+import { CountApp } from "./components/Counter";
 import LikeButton from "./components/LikeButton";
 
 export const metadata = {
@@ -12,6 +14,8 @@ export default function Home() {
     <main className="min-h-screen flex flex-col items-center justify-center">
       <h1>ようこそ！ホームページ</h1>
       <p>今日は {today} です。</p>
+      <ClockApp />
+      <CountApp />
 
       <LikeButton initialCount={99} />
       <Link href="/memos">メモ一覧ページへ</Link>
